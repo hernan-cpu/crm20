@@ -66,6 +66,23 @@ router.put('/:id', async(req,res) => {
     }catch(err){
         res.status(500).send(err);
     }
+});
+
+router.delete('/:id', async (req,res) => {
+    try {
+        const {id} = req.params;
+        const [result] =await pool.execute(
+            'DELETE FROM cliente WHERE id_cliente=?',
+            [id]
+        );
+        if (result.affectedRows >0){
+            res.json({message: 'Cliente eliminado conrrectamente'})
+        }else{
+            res.status(404).json({message: 'Cliente no encontrado'});
+        }
+    }catch(err){
+        res.status(500).send(err);
+    }
 })
 
 module.exports = router;
