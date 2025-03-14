@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 //Crea la aplicacion 
 const app = express();
 //si PORT no tiene valor usa el 3000
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 //habilita cors
 app.use(cors());
 //habilita bodyParser para leer los datos JSON
